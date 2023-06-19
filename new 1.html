@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>String and Number Operations</title>
+    <script>
+      function reverseNumber(number) {
+        const reversedNumber = parseFloat(number.toString().split('').reverse().join(''));
+        return Math.sign(number) * reversedNumber;
+      }
+
+      function isPalindrome(str) {
+        const lowercaseStr = str.toLowerCase();
+        const reversedStr = lowercaseStr.split('').reverse().join('');
+        return lowercaseStr === reversedStr;
+      }
+
+      function sortString(str) {
+        return str.toLowerCase().split('').sort().join('');
+      }
+
+      function processStringAndNumber() {
+        const input = document.getElementById('input').value;
+
+        const reversedNumber = reverseNumber(input);
+        const isPalindromeValue = isPalindrome(input);
+        const sortedString = sortString(input);
+
+        document.getElementById('reversedNumber').textContent = 'Reversed Number: ' + reversedNumber;
+        document.getElementById('isPalindrome').textContent = 'Is Palindrome: ' + isPalindromeValue;
+        document.getElementById('sortedString').textContent = 'Sorted String: ' + sortedString;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>String and Number Operations</h1>
+    <label for="input">Enter a Number or String:</label>
+    <input type="text" id="input" />
+    <button onclick="processStringAndNumber()">Process</button>
+    <br /><br />
+    <div id="reversedNumber"></div>
+    <div id="isPalindrome"></div>
+    <div id="sortedString"></div>
+  </body>
+</html>
